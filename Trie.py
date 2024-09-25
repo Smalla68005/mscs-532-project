@@ -11,6 +11,9 @@ class Trie:
 
     # Method to insert a pattern (string) into the trie
     def insert(self, pattern):
+        if not isinstance(pattern, str) or not pattern:
+            raise ValueError("Invalid patten. Pattern must be a non-empty string")
+        
         node = self.root  # Start from the root node
         for char in pattern:
             if char not in node.children:
@@ -20,6 +23,9 @@ class Trie:
 
     # Method to search for a pattern in the trie
     def search(self, pattern):
+        if not isinstance(pattern, str) or not pattern:
+            raise ValueError("Invalid pattern. Pattern must be a non-empty string.")
+        
         node = self.root
         for char in pattern:
             if char not in node.children:
